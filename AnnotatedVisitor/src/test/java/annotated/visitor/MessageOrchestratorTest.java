@@ -13,9 +13,11 @@ import java.util.List;
 public class MessageOrchestratorTest {
 
     public void shouldReturnAugmentedUserMessageFromMessageBootstrapper() {
-        List<Message> listOfUserMessages = new ArrayList<Message>();
+        List<Message> listOfUserMessages = new ArrayList();
 
         final MessageBootstrapper messageBootstrapper = new MessageBootstrapper(listOfUserMessages);
+
+        final String thisGitIsAGoodIdea = new String("Branching worked in the IDE.");
 
         messageBootstrapper
                 .bootstrapMessage(new UserMessage(User.ADMIN, "annotated.visitor.Message from Admin to tear down some process."))
