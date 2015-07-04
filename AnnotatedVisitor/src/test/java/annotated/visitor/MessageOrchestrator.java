@@ -1,6 +1,9 @@
 package annotated.visitor;
 
-import java.util.ArrayList;
+import annotated.messages.Message;
+import annotated.strategy.IStrategy;
+import annotated.strategy.OperatorStrategy;
+
 import java.util.List;
 
 /**

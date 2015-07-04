@@ -1,4 +1,8 @@
-package annotated.visitor;
+package annotated.messages;
+
+import annotated.visitor.Availability;
+import annotated.visitor.Request;
+import annotated.visitor.Role;
 
 /**
  * Created by Thomas on 7/3/2015.

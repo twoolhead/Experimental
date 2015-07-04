@@ -1,9 +1,11 @@
-package annotated.visitor;
+package annotated.operations;
+
+import annotated.operations.Operators;
 
 /**
  * Created by Thomas on 7/3/2015.
  */
-public enum Operator {
+public enum ArithmeticOperator implements Operators {
     MULTIPLY {
         @Override
         public Double performOperation(Double first, Double second) {

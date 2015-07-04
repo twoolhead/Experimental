@@ -1,4 +1,6 @@
-package annotated.visitor;
+package annotated.validation;
+
+import annotated.visitor.Request;
 
 /**
  * Created by Thomas on 7/3/2015.

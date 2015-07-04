@@ -1,13 +1,15 @@
 package annotated.visitor;
 
+import annotated.operations.ArithmeticOperator;
+
 /**
  * Created by Thomas on 7/3/2015.
  */
 public final class Request {
     private final String[] requests;
-    private final Operator operation;
+    private final ArithmeticOperator operation;
 
-    public Request(Operator operation, String ... requests) {
+    public Request(ArithmeticOperator operation, String ... requests) {
         this.requests = requests;
         this.operation = operation;
     }
@@ -16,7 +18,7 @@ public final class Request {
         return requests;
     }
 
-    public Operator getOperation() {
+    public ArithmeticOperator getOperation() {
         return operation;
     }
 }

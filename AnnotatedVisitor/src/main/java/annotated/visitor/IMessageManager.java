@@ -1,5 +1,7 @@
 package annotated.visitor;
 
+import annotated.strategy.IStrategy;
+
 import java.util.List;
 
 /**

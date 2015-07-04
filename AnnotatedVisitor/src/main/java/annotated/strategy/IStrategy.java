@@ -1,4 +1,6 @@
-package annotated.visitor;
+package annotated.strategy;
+
+import annotated.messages.Message;
 
 /**
  * Created by Thomas on 7/3/2015.
