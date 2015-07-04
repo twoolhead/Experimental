@@ -1,7 +1,9 @@
 package annotated.visitor;
 
 /**
- * Created by Thomas on 6/18/2015.
- */
+* Created by Thomas on 6/18/2015.
+        */
 public interface Message {
+    public abstract Response acceptStrategy(final IStrategy strategy);
+    public abstract Request getRequests();
 }

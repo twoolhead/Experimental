@@ -1,9 +1,6 @@
 package annotated.visitor;
 
-import annotated.visitor.Message;
-import annotated.visitor.MessageBootstrapper;
-import annotated.visitor.User;
-import annotated.visitor.UserMessage;
+import static org.testng.Assert.assertNotNull;
 import org.testng.annotations.Test;
 
 import java.util.ArrayList;
@@ -13,16 +10,15 @@ import java.util.List;
 public class MessageOrchestratorTest {
 
     public void shouldReturnAugmentedUserMessageFromMessageBootstrapper() {
-        List<Message> listOfUserMessages = new ArrayList();
+        final List<Message> messages = new ArrayList<>();
 
-        final MessageBootstrapper messageBootstrapper = new MessageBootstrapper(listOfUserMessages);
+        messages.add(new UserLevelMessage(Role.ADMIN, new Request(Operator.MULTIPLY, new String("1"), new String("2")), Availability.AVAILABILE));
+        messages.add(new UserLevelMessage(Role.GUEST, new Request(Operator.DIVIDE, new String("5"), new String("3")), Availability.AVAILABILE));
 
-        final String thisGitIsAGoodIdea = new String("Branching worked in the IDE.");
+        final MessageOrchestrator messageOrchestrator = new MessageOrchestrator();
+        final List<Response> messageResponses = messageOrchestrator.orchestrateMessages(messages);
 
-        messageBootstrapper
-                .bootstrapMessage(new UserMessage(User.ADMIN, "annotated.visitor.Message from Admin to tear down some process."))
-                .bootstrapMessage(new UserMessage(User.GUEST, "annotated.visitor.Message from annotated.visitor.User to perform some operation."))
-                .bootstrapMessage(new UserMessage(User.GUEST, "annotated.visitor.Message from annotated.visitor.User to stop performing some operation."));
+        assertNotNull(messageResponses);
     }
 
 }
