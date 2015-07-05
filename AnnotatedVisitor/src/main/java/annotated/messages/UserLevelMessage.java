@@ -1,25 +1,34 @@
 package annotated.messages;
 
+import annotated.operations.StringOperator;
 import annotated.strategy.IStrategy;
 import annotated.visitor.*;
 
 /**
  * Created by Thomas on 6/18/2015.
  */
-public final class UserLevelMessage extends BaseMessage {
+public final class UserLevelMessage implements Message {
+    private final Role role;
+    private final Request request;
 
-    public UserLevelMessage(Role role, Request requests, Availability availability) {
-        this.availability = availability;
-        this.requests = requests;
+    public UserLevelMessage(Role role, Request request) {
+        this.request = request;
         this.role = role;
     }
 
     @Override
     public Response acceptStrategy(IStrategy strategy) {
-        if (Availability.UNAVAILABILE.equals(this.availability)) {
-            return new Response(this.requests, Result.NOT_PROCESSED, "");
-        }
         final String strategyResult = strategy.executeStrategy(this);
-        return new Response(this.requests, Result.PROCESSED, strategyResult);
+
+        return new Response(this.request, Result.PROCESSED, strategyResult);
+    }
+
+    @Override
+    public Request getRequest() {
+        return request;
+    }
+
+    public Role getRole() {
+        return role;
     }
 }

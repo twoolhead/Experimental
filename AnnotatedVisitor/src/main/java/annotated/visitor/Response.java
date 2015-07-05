@@ -25,4 +25,9 @@ public final class Response {
     public Result getResult() {
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Response{}";
+    }
 }

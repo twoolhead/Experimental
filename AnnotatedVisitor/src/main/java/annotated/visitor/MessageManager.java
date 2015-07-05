@@ -22,7 +22,7 @@ public class MessageManager implements IMessageManager {
         final List<Response> strategyResponses = new ArrayList<>();
 
         for(Message message : managedMessages) {
-            message.acceptStrategy(strategy);
+            Response response = message.acceptStrategy(strategy);
         }
 
         return strategyResponses;

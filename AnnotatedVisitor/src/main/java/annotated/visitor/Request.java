@@ -1,24 +1,24 @@
 package annotated.visitor;
 
-import annotated.operations.ArithmeticOperator;
+import annotated.operations.StringOperator;
 
 /**
  * Created by Thomas on 7/3/2015.
  */
 public final class Request {
-    private final String[] requests;
-    private final ArithmeticOperator operation;
+    private final String request;
+    private final StringOperator[] operation;
 
-    public Request(ArithmeticOperator operation, String ... requests) {
-        this.requests = requests;
+    public Request(String request, StringOperator ... operation) {
+        this.request = request;
         this.operation = operation;
     }
 
-    public String[] getRequests() {
-        return requests;
+    public String getRequest() {
+        return request;
     }
 
-    public ArithmeticOperator getOperation() {
+    public StringOperator[] getOperation() {
         return operation;
     }
 }

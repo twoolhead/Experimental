@@ -1,8 +1,7 @@
 package annotated.strategy;
 
 import annotated.messages.Message;
-import annotated.operations.ArithmeticOperator;
-import annotated.strategy.IStrategy;
+import annotated.operations.StringOperator;
 import annotated.validation.IValidator;
 import annotated.visitor.Request;
 
@@ -13,20 +12,25 @@ public class OperatorStrategy implements IValidator, IStrategy {
 
     @Override
     public String executeStrategy(Message message) {
-        final Request request = message.getRequests();
+        final Request request = message.getRequest();
+
         if (this.validate(request)) {
+            return request.getRequest().toLowerCase();
         }
-        return "";
+
+        return request.getRequest();
     }
 
     @Override
     public boolean validate(Request request) {
-        final ArithmeticOperator requestOperation = request.getOperation();
-        for(ArithmeticOperator operation: ArithmeticOperator.values()) {
-            if(operation.equals(requestOperation)){
+        final StringOperator[] operator = request.getOperation();
+
+        for(StringOperator stringOperator : operator) {
+            if (operator.equals(StringOperator.TO_LOWER)) {
                 return true;
             }
         }
+
         return false;
     }
 }

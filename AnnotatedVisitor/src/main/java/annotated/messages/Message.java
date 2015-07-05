@@ -9,5 +9,5 @@ import annotated.visitor.Response;
         */
 public interface Message {
     public abstract Response acceptStrategy(final IStrategy strategy);
-    public abstract Request getRequests();
+    public abstract Request getRequest();
 }
