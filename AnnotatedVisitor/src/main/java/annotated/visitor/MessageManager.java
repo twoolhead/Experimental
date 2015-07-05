@@ -18,7 +18,7 @@ public class MessageManager implements IMessageManager {
     }
 
     @Override
-    public List<Response> processMessagesWithStrategy(IStrategy strategy) {
+    public List<Response> processMessagesWithStrategy(final IStrategy strategy) {
         final List<Response> strategyResponses = new ArrayList<>();
 
         for(Message message : managedMessages) {

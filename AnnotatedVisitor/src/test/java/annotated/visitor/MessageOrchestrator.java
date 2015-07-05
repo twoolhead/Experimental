@@ -2,7 +2,7 @@ package annotated.visitor;
 
 import annotated.messages.Message;
 import annotated.strategy.IStrategy;
-import annotated.strategy.OperatorStrategy;
+import annotated.strategy.UpperCaseStrategy;
 
 import java.util.List;
 
@@ -13,7 +13,7 @@ public class MessageOrchestrator {
     public List<Response> orchestrateMessages(List<Message> messages) {
         final MessageManager messageManager = new MessageManager(messages);
 
-        final IStrategy strategy = new OperatorStrategy();
+        final IStrategy strategy = new UpperCaseStrategy();
         final List<Response> processedMessages = messageManager.processMessagesWithStrategy(strategy);
 
         return processedMessages;

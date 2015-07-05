@@ -15,11 +15,8 @@ public class MessageOrchestratorTest {
 
     public void shouldReturnAugmentedUserMessageFromMessageBootstrapper() {
         final List<Message> messages = new ArrayList<>();
-
-        messages.add(
-                new UserLevelMessage(Role.ADMIN, new Request(new String("MAKE ME LOWER CASE."), StringOperator.TO_LOWER)));
-        messages.add(
-                new UserLevelMessage(Role.GUEST, new Request(new String("make me upper case."), StringOperator.TO_UPPER)));
+        messages.add(new UserLevelMessage(new Request(new String("MAKE ME LOWER CASE."), StringOperator.TO_LOWER)));
+        messages.add(new UserLevelMessage(new Request(new String("make me upper case."), StringOperator.TO_UPPER)));
 
         final MessageOrchestrator messageOrchestrator = new MessageOrchestrator();
         final List<Response> messageResponses = messageOrchestrator.orchestrateMessages(messages);

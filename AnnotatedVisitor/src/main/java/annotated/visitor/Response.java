@@ -5,21 +5,15 @@ package annotated.visitor;
  */
 public final class Response {
     private final String[] responses;
-    private final Request request;
     private final Result result;
 
-    public Response(Request request, Result result, String ... responses) {
-        this.request = request;
+    public Response(Result result, String ... responses) {
         this.responses = responses;
         this.result = result;
     }
 
     public String[] getResponses() {
         return responses;
-    }
-
-    public Request getRequest() {
-        return request;
     }
 
     public Result getResult() {
